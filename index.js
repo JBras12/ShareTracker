@@ -10,7 +10,7 @@ async function fetchStockPrice(symbol) {
     return {
         currentPrice: data.c,
         changePercent: ((data.d / data.pc) * 100).toFixed(2), 
-        icon: `images/${symbol}.png`
+        icon: `https://jbras12.github.io/ShareTracker//images/${symbol}.png`
     };
 }
 
