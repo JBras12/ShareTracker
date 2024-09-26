@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">  <!-- Character encoding for the webpage -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ensures proper scaling on mobile devices -->
+    <title>ShareTracker</title>  
+    <link rel="stylesheet" href="style.css"> 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!-- CDN for Chart.js library to create charts -->
+</head>
+<body>
+
+    <!-- Navigation bar with links to different pages -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Form for adding stocks to the portfolio -->
+    <form id="stockForm">
+        <div class="form-group">
+            <label for="symbol">Search Stock:</label> 
+            <input type="text" id="symbol" placeholder="Enter stock symbol" required oninput="fetchSuggestions()" autocomplete="off">
+            <div id="suggestions" class="suggestion-box"></div>  
+        </div>
+        <div class="form-group">
+            <label for="shares">Number of Shares:</label>  
+            <input type="number" id="shares" placeholder="# Shares" required>
+        </div>
+        <div class="form-group">
+            <label for="currentPrice">Purchase Price:</label>  
+            <input type="number" id="currentPrice" placeholder="Purchase Price" required>
+        </div>
+        <button type="submit" id="btn_Submit">Add Stock</button>  
+    </form>
+
+    <!-- Section displaying the total portfolio value and profit/loss (P/L) -->
+    <div id="portfolio">
+        <h2>Portfolio</h2>
+        <p id="portfolio-value">Total Value: $0.00</p>  
+        <p id="portfolio-pl">P/L: $0.00</p>  
+    </div>
+
+    <!-- Canvas for the pie chart displaying stock distribution -->
+    <div style="max-width: 300px; margin: auto;">
+        <canvas id="myChart"></canvas>  
+    </div>
+
+    <!-- Table for displaying stock portfolio data -->
+    <table id="portfolio-table">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th># Shares</th>
+                <th>Avg. Price</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+                <th>P/L</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- Table rows will be generated dynamically by JavaScript -->
+        </tbody>
+    </table>
+
+    <!-- Footer section with copyright information and social media links -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ShareTracker. All rights reserved.</p>  
+            <div class="social-icons">
+                <a href="https://github.com/JBras12" target="_blank">
+                    <img src="images/github.png" alt="GitHub" width="40" height="40" />
+                </a>
+                &nbsp;&nbsp;
+                <a href="https://www.linkedin.com/in/jos%C3%A9-br%C3%A1s-590b84135/" target="_blank">
+                    <img src="images/linkedin.png" alt="LinkedIn" width="40" height="40" />
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="portfolio.js"></script>
+
+</body>
+</html>
